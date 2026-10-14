@@ -1,3 +1,5 @@
+
+
 /* =========================
    CONFIGURACIÓN GENERAL
 ========================= */
@@ -14,8 +16,19 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #333333;
+    background: linear-gradient(135deg, #111111, #242424, #151515);
+    color: #eeeeee;
+    line-height: 1.7;
+}
+
+/* Colores de la marca */
+:root {
+    --negro: #111111;
+    --negro-claro: #222222;
+    --dorado: #d4af37;
+    --dorado-claro: #f8e7a0;
+    --plateado: #c0c0c0;
+    --blanco: #ffffff;
 }
 
 
@@ -24,8 +37,14 @@ body {
 ========================= */
 
 header {
-    background-color: #222222;
-    color: white;
+    background: linear-gradient(
+        110deg,
+        #101010,
+        #292929,
+        #151515
+    );
+
+    color: var(--blanco);
 
     display: flex;
     justify-content: space-between;
@@ -37,11 +56,28 @@ header {
     top: 0;
 
     z-index: 1000;
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.6);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
 .logo {
-    font-size: 25px;
+    font-size: 28px;
     font-weight: bold;
+    letter-spacing: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #a98220,
+        #fff0a6,
+        #d4af37,
+        #f5f5f5
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 nav {
@@ -50,21 +86,26 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: var(--plateado);
     text-decoration: none;
+
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: #00aaff;
+    color: var(--dorado-claro);
 }
 
 
 /* =========================
-   HERO
+   PORTADA PRINCIPAL
 ========================= */
 
 .hero {
-    min-height: 80vh;
+    min-height: 85vh;
 
     display: flex;
     justify-content: center;
@@ -74,30 +115,55 @@ nav a:hover {
 
     padding: 40px;
 
-    background-image:
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(212, 175, 55, 0.20),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(192, 192, 192, 0.16),
+            transparent 40%
+        ),
         linear-gradient(
-            rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0.6)
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.82)
         ),
         url("https://picsum.photos/1600/900");
 
     background-size: cover;
     background-position: center;
 
-    color: white;
+    color: var(--blanco);
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .hero-text {
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .hero h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
+    font-size: 54px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+
+    background: linear-gradient(
+        90deg,
+        #d4af37,
+        #fff2b0,
+        #c0c0c0
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: 19px;
+    color: #dddddd;
     margin-bottom: 30px;
 }
 
@@ -107,84 +173,188 @@ nav a:hover {
 ========================= */
 
 .section {
-    padding: 80px 8%;
+    padding: 85px 8%;
+
+    background:
+        radial-gradient(
+            ellipse at top right,
+            rgba(212, 175, 55, 0.07),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #151515,
+            #202020,
+            #121212
+        );
 }
 
 .section h2 {
     text-align: center;
-    font-size: 35px;
+    font-size: 36px;
     margin-bottom: 40px;
+
+    color: var(--dorado);
+
+    letter-spacing: 2px;
+}
+
+.section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 80px;
+    height: 3px;
+
+    margin: 15px auto 0;
+
+    background: linear-gradient(
+        90deg,
+        var(--dorado),
+        var(--plateado)
+    );
+
+    border-radius: 5px;
 }
 
 .fondo {
-    background-color: #f2f2f2;
+    background:
+        radial-gradient(
+            ellipse at 10% 20%,
+            rgba(212, 175, 55, 0.12),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #252525,
+            #181818,
+            #292929
+        );
+
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
+    border-bottom: 1px solid rgba(192, 192, 192, 0.20);
 }
 
 .texto-centro {
     max-width: 800px;
     margin: auto;
+
     text-align: center;
-    line-height: 1.8;
+    line-height: 1.9;
+
+    color: #d0d0d0;
 }
 
 
 /* =========================
-   BOTONES
+   BOTONES DORADOS
 ========================= */
 
 button {
-    background-color: #0077cc;
-    color: white;
+    background: linear-gradient(
+        135deg,
+        #a98220,
+        #f4df91,
+        #c9a227
+    );
 
-    border: none;
+    color: #151515;
 
-    padding: 12px 20px;
+    border: 1px solid #f4df91;
+
+    padding: 13px 25px;
 
     border-radius: 5px;
 
     cursor: pointer;
 
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
 }
 
 button:hover {
-    background-color: #005fa3;
+    background: linear-gradient(
+        135deg,
+        #f5f5f5,
+        #c0c0c0,
+        #e5e5e5
+    );
+
+    color: #111111;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 22px rgba(192, 192, 192, 0.25);
 }
 
 
 /* =========================
-   TARJETAS
+   TARJETAS DE SERVICIOS
 ========================= */
 
 .cards {
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 25px;
 }
 
 .card {
-    background-color: white;
+    background: linear-gradient(
+        145deg,
+        #292929,
+        #191919,
+        #242424
+    );
 
-    padding: 30px;
+    padding: 35px 30px;
 
     text-align: center;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+    transition: all 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--dorado);
+
+    background: linear-gradient(
+        145deg,
+        #393020,
+        #242424,
+        #303030
+    );
+
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.12);
 }
 
 .card h3 {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+
+    color: var(--dorado-claro);
+
+    font-size: 22px;
 }
 
 .card p {
-    margin-bottom: 20px;
-    line-height: 1.6;
+    margin-bottom: 25px;
+    line-height: 1.8;
+
+    color: #cccccc;
 }
 
 
@@ -195,16 +365,15 @@ button:hover {
 .galeria {
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
-    gap: 20px;
+    gap: 22px;
 }
 
 .galeria img {
     width: 100%;
 
-    height: 250px;
+    height: 280px;
 
     object-fit: cover;
 
@@ -212,11 +381,19 @@ button:hover {
 
     cursor: pointer;
 
-    transition: transform 0.3s;
+    border: 1px solid rgba(192, 192, 192, 0.35);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.35s ease;
 }
 
 .galeria img:hover {
-    transform: scale(1.03);
+    transform: scale(1.04);
+
+    border-color: var(--dorado);
+
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
 }
 
 
@@ -225,38 +402,56 @@ button:hover {
 ========================= */
 
 .calculadora {
-    max-width: 400px;
+    max-width: 420px;
 
     margin: auto;
 
     text-align: center;
 
-    background-color: white;
+    background: linear-gradient(
+        145deg,
+        #292929,
+        #181818
+    );
 
-    padding: 30px;
+    padding: 35px;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .calculadora input {
     width: 100%;
 
-    padding: 12px;
+    padding: 13px;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
-    border: 1px solid #ccc;
+    background: #111111;
+
+    color: white;
+
+    border: 1px solid #666666;
 
     border-radius: 5px;
+
+    outline: none;
+}
+
+.calculadora input:focus {
+    border-color: var(--dorado);
+
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.15);
 }
 
 .botones-calculadora {
     display: flex;
 
     justify-content: center;
+    flex-wrap: wrap;
 
     gap: 10px;
 
@@ -265,7 +460,7 @@ button:hover {
 
 
 /* =========================
-   FORMULARIO
+   FORMULARIO DE CONTACTO
 ========================= */
 
 form {
@@ -277,18 +472,43 @@ form {
 
     flex-direction: column;
 
-    gap: 15px;
+    gap: 17px;
 }
 
 form input,
 form textarea {
     padding: 15px;
 
-    border: 1px solid #ccc;
+    background: linear-gradient(
+        135deg,
+        #242424,
+        #181818
+    );
 
-    border-radius: 5px;
+    color: white;
 
-    font-family: Arial;
+    border: 1px solid #555555;
+
+    border-radius: 6px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+
+    border-color: var(--dorado);
+
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.12);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #aaaaaa;
 }
 
 form textarea {
@@ -303,20 +523,37 @@ form textarea {
 ========================= */
 
 footer {
-    background-color: #222222;
+    background: linear-gradient(
+        110deg,
+        #101010,
+        #292929,
+        #111111
+    );
 
-    color: white;
+    color: var(--plateado);
 
     text-align: center;
 
-    padding: 30px;
+    padding: 35px 20px;
 
-    line-height: 1.8;
+    line-height: 1.9;
+
+    border-top: 1px solid rgba(212, 175, 55, 0.5);
 }
 
 
 /* =========================
-   RESPONSIVE
+   EFECTOS DE SELECCIÓN
+========================= */
+
+::selection {
+    background: var(--dorado);
+    color: #111111;
+}
+
+
+/* =========================
+   RESPONSIVE - CELULARES
 ========================= */
 
 @media (max-width: 768px) {
@@ -324,17 +561,43 @@ footer {
     header {
         flex-direction: column;
 
-        gap: 20px;
+        gap: 18px;
+
+        padding: 20px 5%;
     }
 
     nav {
         flex-wrap: wrap;
 
         justify-content: center;
+
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 75vh;
+
+        padding: 35px 6%;
     }
 
     .hero h1 {
-        font-size: 35px;
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 65px 6%;
+    }
+
+    .section h2 {
+        font-size: 29px;
     }
 
     .cards {
@@ -345,4 +608,56 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .galeria img {
+        height: 280px;
+    }
+
+    .calculadora {
+        padding: 25px 20px;
+    }
+
+    .botones-calculadora {
+        gap: 8px;
+    }
+
+    button {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================
+   RESPONSIVE - PANTALLAS PEQUEÑAS
+========================= */
+
+@media (max-width: 400px) {
+
+    .logo {
+        font-size: 23px;
+        letter-spacing: 3px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .section h2 {
+        font-size: 26px;
+    }
+
+    .card {
+        padding: 25px 20px;
+    }
+
+    .galeria img {
+        height: 230px;
+    }
 }
