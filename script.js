@@ -1,177 +1,341 @@
 /* ==================================
-   FUNCIÓN: MENSAJE DE BIENVENIDA
+MENSAJE DE BIENVENIDA
 ================================== */
 
 function mostrarMensaje() {
 
-    alert("¡Bienvenido a esta página web!");
+alert("¡Bienvenido a Perfume Miki!");
 
 }
 
-
 /* ==================================
-   FUNCIÓN: SERVICIOS
+IR A LA TIENDA
 ================================== */
 
-function mostrarServicio(servicio) {
+function irATienda() {
 
-    alert(
-        "Seleccionaste: " + servicio
-    );
+document.getElementById("tienda").scrollIntoView({
+    behavior: "smooth"
+});
 
 }
 
-
 /* ==================================
-   CALCULADORA
+PRODUCTOS DE LA TIENDA
 ================================== */
 
-// Obtener los números escritos por el usuario
+const productos = [
+
+{
+    id: 1,
+    nombre: "Elegance",
+    precio: 120000
+},
+
+{
+    id: 2,
+    nombre: "Intense",
+    precio: 150000
+},
+
+{
+    id: 3,
+    nombre: "Exclusive",
+    precio: 180000
+}
+
+];
+
+/* ==================================
+CARRITO DE COMPRAS
+================================== */
+
+let carrito = [];
+
+// AGREGAR PRODUCTOS
+
+function agregarCarrito(id) {
+
+let producto = productos.find(p => p.id === id);
+
+let productoExiste = carrito.find(p => p.id === id);
+
+if (productoExiste) {
+
+    productoExiste.cantidad++;
+
+} else {
+
+    carrito.push({
+        ...producto,
+        cantidad: 1
+    });
+
+}
+
+actualizarCarrito();
+
+alert(producto.nombre + " agregado al carrito.");
+
+}
+
+// ACTUALIZAR CARRITO
+
+function actualizarCarrito() {
+
+let lista = document.getElementById("lista-carrito");
+
+let totalHTML = document.getElementById("total");
+
+lista.innerHTML = "";
+
+let total = 0;
+
+if (carrito.length === 0) {
+
+    lista.innerHTML = `
+        <p class="texto-centro">
+            Tu carrito está vacío.
+        </p>
+    `;
+
+}
+
+carrito.forEach(producto => {
+
+    let subtotal = producto.precio * producto.cantidad;
+
+    total += subtotal;
+
+    lista.innerHTML += `
+
+        <div class="producto-carrito">
+
+            <div>
+
+                <h3>${producto.nombre}</h3>
+
+                <p>
+                    Precio: ${formatoPrecio(producto.precio)}
+                </p>
+
+                <p>
+                    Cantidad: ${producto.cantidad}
+                </p>
+
+                <p>
+                    Subtotal: ${formatoPrecio(subtotal)}
+                </p>
+
+            </div>
+
+            <button onclick="eliminarProducto(${producto.id})">
+
+                Eliminar
+
+            </button>
+
+        </div>
+
+    `;
+
+});
+
+totalHTML.innerText = "Total: " + formatoPrecio(total);
+
+}
+
+// ELIMINAR PRODUCTO
+
+function eliminarProducto(id) {
+
+carrito = carrito.filter(p => p.id !== id);
+
+actualizarCarrito();
+
+}
+
+// VACIAR CARRITO
+
+function vaciarCarrito() {
+
+if (carrito.length === 0) {
+
+    alert("El carrito ya está vacío.");
+
+    return;
+
+}
+
+carrito = [];
+
+actualizarCarrito();
+
+alert("El carrito ha sido vaciado.");
+
+}
+
+// FINALIZAR COMPRA
+
+function finalizarCompra() {
+
+if (carrito.length === 0) {
+
+    alert("Primero debes agregar productos al carrito.");
+
+    return;
+
+}
+
+let total = carrito.reduce((suma, producto) => {
+
+    return suma + producto.precio * producto.cantidad;
+
+}, 0);
+
+alert(
+    "¡Gracias por comprar en Perfume Miki!\n\n" +
+    "Total de tu compra: " + formatoPrecio(total) +
+    "\n\nTu pedido ha sido registrado."
+);
+
+carrito = [];
+
+actualizarCarrito();
+
+}
+
+// FORMATO DE PRECIOS
+
+function formatoPrecio(valor) {
+
+return new Intl.NumberFormat("es-CO", {
+
+    style: "currency",
+
+    currency: "COP",
+
+    maximumFractionDigits: 0
+
+}).format(valor);
+
+}
+
+/* ==================================
+CALCULADORA
+================================== */
 
 function obtenerNumeros() {
 
-    let numero1 =
-        parseFloat(
-            document.getElementById("numero1").value
-        );
+let numero1 = parseFloat(
+    document.getElementById("numero1").value
+);
 
-    let numero2 =
-        parseFloat(
-            document.getElementById("numero2").value
-        );
+let numero2 = parseFloat(
+    document.getElementById("numero2").value
+);
 
-    return [numero1, numero2];
+return [numero1, numero2];
 
 }
-
-
-// SUMA
 
 function sumar() {
 
-    let numeros = obtenerNumeros();
+let numeros = obtenerNumeros();
 
-    let resultado =
-        numeros[0] + numeros[1];
-
-    mostrarResultado(resultado);
+mostrarResultado(numeros[0] + numeros[1]);
 
 }
-
-
-// RESTA
 
 function restar() {
 
-    let numeros = obtenerNumeros();
+let numeros = obtenerNumeros();
 
-    let resultado =
-        numeros[0] - numeros[1];
-
-    mostrarResultado(resultado);
+mostrarResultado(numeros[0] - numeros[1]);
 
 }
-
-
-// MULTIPLICACIÓN
 
 function multiplicar() {
 
-    let numeros = obtenerNumeros();
+let numeros = obtenerNumeros();
 
-    let resultado =
-        numeros[0] * numeros[1];
-
-    mostrarResultado(resultado);
+mostrarResultado(numeros[0] * numeros[1]);
 
 }
-
-
-// DIVISIÓN
 
 function dividir() {
 
-    let numeros = obtenerNumeros();
+let numeros = obtenerNumeros();
 
-    if (numeros[1] === 0) {
+if (numeros[1] === 0) {
 
-        alert(
-            "No es posible dividir entre cero."
-        );
+    alert("No es posible dividir entre cero.");
 
-        return;
-    }
-
-    let resultado =
-        numeros[0] / numeros[1];
-
-    mostrarResultado(resultado);
+    return;
 
 }
 
+mostrarResultado(numeros[0] / numeros[1]);
 
-// Mostrar resultado
+}
 
 function mostrarResultado(resultado) {
 
-    document.getElementById("resultado").innerText =
-        "Resultado: " + resultado;
+if (Number.isNaN(resultado)) {
+
+    alert("Por favor, ingresa los dos números.");
+
+    return;
 
 }
 
+document.getElementById("resultado").innerText =
+    "Resultado: " + resultado;
+
+}
 
 /* ==================================
-   GALERÍA
+GALERÍA
 ================================== */
 
 function ampliarImagen(imagen) {
 
-    if (
-        imagen.style.transform ===
-        "scale(1.5)"
-    ) {
+if (imagen.style.transform === "scale(1.5)") {
 
-        imagen.style.transform =
-            "scale(1)";
+    imagen.style.transform = "scale(1)";
 
-    } else {
+} else {
 
-        imagen.style.transform =
-            "scale(1.5)";
-
-    }
+    imagen.style.transform = "scale(1.5)";
 
 }
 
+}
 
 /* ==================================
-   FORMULARIO
+FORMULARIO DE CONTACTO
 ================================== */
 
 function enviarFormulario(evento) {
 
-    evento.preventDefault();
+evento.preventDefault();
 
-    let nombre =
-        document.getElementById("nombre").value;
+let nombre = document.getElementById("nombre").value;
 
-    let correo =
-        document.getElementById("correo").value;
+let correo = document.getElementById("correo").value;
 
-    alert(
-        "Gracias " +
-        nombre +
-        ". Hemos recibido tu mensaje."
-    );
+let mensaje = document.getElementById("mensaje").value;
 
-    console.log(
-        "Nombre:",
-        nombre
-    );
+alert(
+    "Gracias " + nombre +
+    ". Hemos recibido tu mensaje."
+);
 
-    console.log(
-        "Correo:",
-        correo
-    );
+console.log("Nombre:", nombre);
+
+console.log("Correo:", correo);
+
+console.log("Mensaje:", mensaje);
 
 }
+
