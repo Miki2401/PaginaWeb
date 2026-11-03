@@ -1,341 +1,440 @@
 /* ==================================
-MENSAJE DE BIENVENIDA
+   MENSAJE DE BIENVENIDA
 ================================== */
 
 function mostrarMensaje() {
 
-alert("¡Bienvenido a Perfume Miki!");
+    alert("¡Bienvenido a Perfume Miki!");
 
 }
 
+
 /* ==================================
-IR A LA TIENDA
+   IR A LA TIENDA
 ================================== */
 
 function irATienda() {
 
-document.getElementById("tienda").scrollIntoView({
-    behavior: "smooth"
-});
+    document.getElementById("tienda").scrollIntoView({
+
+        behavior: "smooth"
+
+    });
 
 }
 
+
 /* ==================================
-PRODUCTOS DE LA TIENDA
+   PRODUCTOS DE LA TIENDA
 ================================== */
 
 const productos = [
 
-{
-    id: 1,
-    nombre: "Elegance",
-    precio: 120000
-},
+    {
+        id: 1,
+        nombre: "Sauvage Dior",
+        precio: 280000
+    },
 
-{
-    id: 2,
-    nombre: "Intense",
-    precio: 150000
-},
+    {
+        id: 2,
+        nombre: "Bleu de Chanel",
+        precio: 320000
+    },
 
-{
-    id: 3,
-    nombre: "Exclusive",
-    precio: 180000
-}
+    {
+        id: 3,
+        nombre: "One Million",
+        precio: 250000
+    },
+
+    {
+        id: 4,
+        nombre: "Good Girl",
+        precio: 290000
+    },
+
+    {
+        id: 5,
+        nombre: "La Vie Est Belle",
+        precio: 270000
+    },
+
+    {
+        id: 6,
+        nombre: "Acqua di Gio",
+        precio: 260000
+    },
+
+    {
+        id: 7,
+        nombre: "212 VIP",
+        precio: 240000
+    },
+
+    {
+        id: 8,
+        nombre: "Invictus",
+        precio: 230000
+    },
+
+    {
+        id: 9,
+        nombre: "Versace Eros",
+        precio: 275000
+    }
 
 ];
 
+
 /* ==================================
-CARRITO DE COMPRAS
+   CARRITO DE COMPRAS
 ================================== */
 
 let carrito = [];
+
 
 // AGREGAR PRODUCTOS
 
 function agregarCarrito(id) {
 
-let producto = productos.find(p => p.id === id);
+    let producto = productos.find(p => p.id === id);
 
-let productoExiste = carrito.find(p => p.id === id);
+    let productoExiste = carrito.find(p => p.id === id);
 
-if (productoExiste) {
+    if (productoExiste) {
 
-    productoExiste.cantidad++;
+        productoExiste.cantidad++;
 
-} else {
+    } else {
 
-    carrito.push({
-        ...producto,
-        cantidad: 1
-    });
+        carrito.push({
+
+            ...producto,
+
+            cantidad: 1
+
+        });
+
+    }
+
+    actualizarCarrito();
+
+    alert(producto.nombre + " agregado al carrito.");
 
 }
 
-actualizarCarrito();
-
-alert(producto.nombre + " agregado al carrito.");
-
-}
 
 // ACTUALIZAR CARRITO
 
 function actualizarCarrito() {
 
-let lista = document.getElementById("lista-carrito");
+    let lista = document.getElementById("lista-carrito");
 
-let totalHTML = document.getElementById("total");
+    let totalHTML = document.getElementById("total");
 
-lista.innerHTML = "";
+    lista.innerHTML = "";
 
-let total = 0;
+    let total = 0;
 
-if (carrito.length === 0) {
 
-    lista.innerHTML = `
-        <p class="texto-centro">
-            Tu carrito está vacío.
-        </p>
-    `;
+    if (carrito.length === 0) {
 
-}
+        lista.innerHTML = `
 
-carrito.forEach(producto => {
+            <p class="texto-centro">
 
-    let subtotal = producto.precio * producto.cantidad;
+                Tu carrito está vacío.
 
-    total += subtotal;
+            </p>
 
-    lista.innerHTML += `
+        `;
 
-        <div class="producto-carrito">
+    }
 
-            <div>
 
-                <h3>${producto.nombre}</h3>
+    carrito.forEach(producto => {
 
-                <p>
-                    Precio: ${formatoPrecio(producto.precio)}
-                </p>
+        let subtotal = producto.precio * producto.cantidad;
 
-                <p>
-                    Cantidad: ${producto.cantidad}
-                </p>
+        total += subtotal;
 
-                <p>
-                    Subtotal: ${formatoPrecio(subtotal)}
-                </p>
+
+        lista.innerHTML += `
+
+            <div class="producto-carrito">
+
+                <div>
+
+                    <h3>${producto.nombre}</h3>
+
+                    <p>
+                        Precio por unidad:
+                        ${formatoPrecio(producto.precio)}
+                    </p>
+
+                    <p>
+                        Cantidad:
+                        ${producto.cantidad}
+                    </p>
+
+                    <p>
+                        Subtotal:
+                        ${formatoPrecio(subtotal)}
+                    </p>
+
+                </div>
+
+                <button onclick="eliminarProducto(${producto.id})">
+
+                    Eliminar
+
+                </button>
 
             </div>
 
-            <button onclick="eliminarProducto(${producto.id})">
+        `;
 
-                Eliminar
+    });
 
-            </button>
 
-        </div>
-
-    `;
-
-});
-
-totalHTML.innerText = "Total: " + formatoPrecio(total);
+    totalHTML.innerText = "Total: " + formatoPrecio(total);
 
 }
 
-// ELIMINAR PRODUCTO
+
+// ELIMINAR PRODUCTOS
 
 function eliminarProducto(id) {
 
-carrito = carrito.filter(p => p.id !== id);
+    carrito = carrito.filter(p => p.id !== id);
 
-actualizarCarrito();
+    actualizarCarrito();
 
 }
+
 
 // VACIAR CARRITO
 
 function vaciarCarrito() {
 
-if (carrito.length === 0) {
+    if (carrito.length === 0) {
 
-    alert("El carrito ya está vacío.");
+        alert("El carrito ya está vacío.");
 
-    return;
+        return;
+
+    }
+
+    carrito = [];
+
+    actualizarCarrito();
+
+    alert("El carrito ha sido vaciado.");
 
 }
 
-carrito = [];
-
-actualizarCarrito();
-
-alert("El carrito ha sido vaciado.");
-
-}
 
 // FINALIZAR COMPRA
 
 function finalizarCompra() {
 
-if (carrito.length === 0) {
+    if (carrito.length === 0) {
 
-    alert("Primero debes agregar productos al carrito.");
+        alert("Primero debes agregar productos al carrito.");
 
-    return;
+        return;
+
+    }
+
+
+    let total = carrito.reduce((suma, producto) => {
+
+        return suma + producto.precio * producto.cantidad;
+
+    }, 0);
+
+
+    alert(
+
+        "¡Gracias por comprar en Perfume Miki!\n\n" +
+
+        "Total de tu compra: " + formatoPrecio(total) +
+
+        "\n\nTu pedido ha sido registrado."
+
+    );
+
+
+    carrito = [];
+
+    actualizarCarrito();
 
 }
 
-let total = carrito.reduce((suma, producto) => {
-
-    return suma + producto.precio * producto.cantidad;
-
-}, 0);
-
-alert(
-    "¡Gracias por comprar en Perfume Miki!\n\n" +
-    "Total de tu compra: " + formatoPrecio(total) +
-    "\n\nTu pedido ha sido registrado."
-);
-
-carrito = [];
-
-actualizarCarrito();
-
-}
 
 // FORMATO DE PRECIOS
 
 function formatoPrecio(valor) {
 
-return new Intl.NumberFormat("es-CO", {
+    return new Intl.NumberFormat("es-CO", {
 
-    style: "currency",
+        style: "currency",
 
-    currency: "COP",
+        currency: "COP",
 
-    maximumFractionDigits: 0
+        maximumFractionDigits: 0
 
-}).format(valor);
+    }).format(valor);
 
 }
 
+
 /* ==================================
-CALCULADORA
+   CALCULADORA
 ================================== */
 
 function obtenerNumeros() {
 
-let numero1 = parseFloat(
-    document.getElementById("numero1").value
-);
+    let numero1 = parseFloat(
 
-let numero2 = parseFloat(
-    document.getElementById("numero2").value
-);
+        document.getElementById("numero1").value
 
-return [numero1, numero2];
+    );
+
+    let numero2 = parseFloat(
+
+        document.getElementById("numero2").value
+
+    );
+
+    return [numero1, numero2];
 
 }
+
+
+// SUMA
 
 function sumar() {
 
-let numeros = obtenerNumeros();
+    let numeros = obtenerNumeros();
 
-mostrarResultado(numeros[0] + numeros[1]);
+    mostrarResultado(numeros[0] + numeros[1]);
 
 }
+
+
+// RESTA
 
 function restar() {
 
-let numeros = obtenerNumeros();
+    let numeros = obtenerNumeros();
 
-mostrarResultado(numeros[0] - numeros[1]);
+    mostrarResultado(numeros[0] - numeros[1]);
 
 }
+
+
+// MULTIPLICACIÓN
 
 function multiplicar() {
 
-let numeros = obtenerNumeros();
+    let numeros = obtenerNumeros();
 
-mostrarResultado(numeros[0] * numeros[1]);
+    mostrarResultado(numeros[0] * numeros[1]);
 
 }
+
+
+// DIVISIÓN
 
 function dividir() {
 
-let numeros = obtenerNumeros();
+    let numeros = obtenerNumeros();
 
-if (numeros[1] === 0) {
 
-    alert("No es posible dividir entre cero.");
+    if (numeros[1] === 0) {
 
-    return;
+        alert("No es posible dividir entre cero.");
+
+        return;
+
+    }
+
+
+    mostrarResultado(numeros[0] / numeros[1]);
 
 }
 
-mostrarResultado(numeros[0] / numeros[1]);
 
-}
+// MOSTRAR RESULTADO
 
 function mostrarResultado(resultado) {
 
-if (Number.isNaN(resultado)) {
+    if (Number.isNaN(resultado)) {
 
-    alert("Por favor, ingresa los dos números.");
+        alert("Por favor, ingresa los dos números.");
 
-    return;
+        return;
+
+    }
+
+
+    document.getElementById("resultado").innerText =
+
+        "Resultado: " + resultado;
 
 }
 
-document.getElementById("resultado").innerText =
-    "Resultado: " + resultado;
-
-}
 
 /* ==================================
-GALERÍA
+   GALERÍA
 ================================== */
 
 function ampliarImagen(imagen) {
 
-if (imagen.style.transform === "scale(1.5)") {
+    if (imagen.style.transform === "scale(1.5)") {
 
-    imagen.style.transform = "scale(1)";
+        imagen.style.transform = "scale(1)";
 
-} else {
+    } else {
 
-    imagen.style.transform = "scale(1.5)";
+        imagen.style.transform = "scale(1.5)";
+
+    }
 
 }
 
-}
 
 /* ==================================
-FORMULARIO DE CONTACTO
+   FORMULARIO DE CONTACTO
 ================================== */
 
 function enviarFormulario(evento) {
 
-evento.preventDefault();
+    evento.preventDefault();
 
-let nombre = document.getElementById("nombre").value;
 
-let correo = document.getElementById("correo").value;
+    let nombre = document.getElementById("nombre").value;
 
-let mensaje = document.getElementById("mensaje").value;
+    let correo = document.getElementById("correo").value;
 
-alert(
-    "Gracias " + nombre +
-    ". Hemos recibido tu mensaje."
-);
+    let mensaje = document.getElementById("mensaje").value;
 
-console.log("Nombre:", nombre);
 
-console.log("Correo:", correo);
+    alert(
 
-console.log("Mensaje:", mensaje);
+        "Gracias " + nombre +
+
+        ". Hemos recibido tu mensaje."
+
+    );
+
+
+    console.log("Nombre:", nombre);
+
+    console.log("Correo:", correo);
+
+    console.log("Mensaje:", mensaje);
 
 }
-
