@@ -1,262 +1,305 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Perfume Miki | Tienda Online</title>
 
-    <title>Perfume Miki| Plantilla Web</title>
+<link rel="stylesheet" href="styles.css">
 
-    <!-- Conexión con CSS -->
-    <link rel="stylesheet" href="styles.css">
-</head>
+</head><body><!-- ENCABEZADO -->
+<header>
 
-<body>
+    <div class="logo">
+        Perfume & Esencia
+    </div>
 
-    <!-- =========================
-         ENCABEZADO
-    ========================== -->
-    <header>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#tienda">Tienda</a>
+        <a href="#carrito">Carrito</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 
-        <div class="logo">
-            Perfume & Esencia
-        </div>
-
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#galeria">Galería</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-
-    </header>
+</header>
 
 
-    <!-- =========================
-         SECCIÓN PRINCIPAL
-    ========================== -->
-    <section id="inicio" class="hero">
+<!-- INICIO -->
+<section id="inicio" class="hero">
 
-        <div class="hero-text">
+    <div class="hero-text">
 
-            <h1>Bienvenido a Perfume Miki</h1>
+        <h1>Bienvenido a Perfume Miki</h1>
+
+        <p>
+            Un buen perfume no solo deja una fragancia,
+            deja una huella que nadie olvida.
+            Tu esencia, tu estilo, tu huella.
+        </p>
+
+        <button onclick="irATienda()">
+            Comprar ahora
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="section">
+
+    <h2>Conócenos un poco más</h2>
+
+    <p class="texto-centro">
+        Somos una empresa dedicada a satisfacer a nuestros
+        clientes con deliciosas fragancias y una gran variedad
+        de perfumes. Nuestro objetivo es ofrecer calidad,
+        buenos precios y una excelente atención.
+    </p>
+
+</section>
+
+
+<!-- TIENDA -->
+<section id="tienda" class="section fondo">
+
+    <h2>Nuestros Perfumes</h2>
+
+    <p class="texto-centro">
+        Encuentra tu fragancia favorita y descubre
+        una esencia que represente tu personalidad.
+    </p>
+
+    <div class="cards">
+
+        <!-- PRODUCTO 1 -->
+        <div class="card producto">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHthMl0HhOUvEBHR6wU9Fe1vQDxAAhUU4euqGFtDVUSokts-YeTuXuwiKy&s=10"
+                alt="Perfume Elegance"
+                class="producto-img"
+            >
+
+            <h3>Elegance</h3>
 
             <p>
-                "un buen perfume no solo deja una fragancia, deja una huella que nadie olvida".
-                "Tu esencia.Tu estilo.Tu huella"
+                Fragancia elegante y sofisticada
+                para cualquier ocasión.
             </p>
 
-            <button onclick="mostrarMensaje()">
-                Conocer más
+            <h3 class="precio">$120.000</h3>
+
+            <button onclick="agregarCarrito(1)">
+                Agregar al carrito
             </button>
 
         </div>
 
-    </section>
 
+        <!-- PRODUCTO 2 -->
+        <div class="card producto">
 
-    <!-- =========================
-         NOSOTROS
-    ========================== -->
-    <section id="nosotros" class="section">
+            <img
+                src="https://m.media-amazon.com/images/I/81g-sfEtQOL._SX569_.jpg"
+                alt="Perfume Intense"
+                class="producto-img"
+            >
 
-        <h2>Conocenos un poco mas</h2>
+            <h3>Intense</h3>
 
-        <p class="texto-centro">
-           "Somos una empresa dedicada para satisfacer a nuestros clientes con deliciosas fragancia de las lociones que mas deseas"
-        </p>
+            <p>
+                Una fragancia intensa con personalidad
+                y carácter.
+            </p>
 
-    </section>
+            <h3 class="precio">$150.000</h3>
 
-
-    <!-- =========================
-         SERVICIOS
-    ========================== -->
-    <section id="servicios" class="section fondo">
-
-        <h2>Servicios</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Servicio 01</h3>
-                <p>
-                    Nuestro primer servicio se trata de comprender que es lo que quiere nuestro cliente y accesorarlo de la mejor manera.
-                </p>
-
-                <button onclick="mostrarServicio('Servicio 01')">
-                    Ver más
-                </button>
-            </div>
-
-
-            <div class="card">
-                <h3>Servicio 02</h3>
-                <p>
-                    Nuestro servicio 2 es colocar a elegir a nuestro cliente con las mejores liciones del mercado y la mejor fragancia.
-                </p>
-
-                <button onclick="mostrarServicio('Servicio 02')">
-                    Ver más
-                </button>
-            </div>
-
-
-            <div class="card">
-                <h3>Servicio 03</h3>
-                <p>
-                    Y por ultimo nuestro servicio 3 se trata de darle el perfume que desea y al mejor precio, para que el cliente siga comprando nuestras fragancias.
-                </p>
-
-                <button onclick="mostrarServicio('Servicio 03')">
-                    Ver más
-                </button>
-            </div>
+            <button onclick="agregarCarrito(2)">
+                Agregar al carrito
+            </button>
 
         </div>
 
-    </section>
 
-
-    <!-- =========================
-         GALERÍA
-    ========================== -->
-    <section id="galeria" class="section">
-
-        <h2>Galería</h2>
-
-        <div class="galeria">
+        <!-- PRODUCTO 3 -->
+        <div class="card producto">
 
             <img
-                src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHthMl0HhOUvEBHR6wU9Fe1vQDxAAhUU4euqGFtDVUSokts-YeTuXuwiKy&s=10
-                alt="Imagen 1"
-                onclick="ampliarImagen(this)"
+                src="https://www.druni.es/blog/wp-content/uploads/2026/03/Druni_Padres_Multimarca_Blog_1200x748px.jpg"
+                alt="Perfume Exclusive"
+                class="producto-img"
             >
 
-            <img
-                src=https://m.media-amazon.com/images/I/81g-sfEtQOL._SX569_.jpg
-                alt="Imagen 2"
-                onclick="ampliarImagen(this)"
-            >
+            <h3>Exclusive</h3>
 
-            <img
-                src=https://www.druni.es/blog/wp-content/uploads/2026/03/Druni_Padres_Multimarca_Blog_1200x748px.jpg
-                alt="Imagen 3"
-                onclick="ampliarImagen(this)"
-            >
+            <p>
+                Una esencia especial para quienes
+                buscan destacar.
+            </p>
+
+            <h3 class="precio">$180.000</h3>
+
+            <button onclick="agregarCarrito(3)">
+                Agregar al carrito
+            </button>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- =========================
-         CALCULADORA
-    ========================== -->
-    <section class="section fondo">
+<!-- CARRITO DE COMPRAS -->
+<section id="carrito" class="section">
 
-        <h2>Calculadora</h2>
+    <h2>Carrito de compras</h2>
 
-        <div class="calculadora">
+    <div class="carrito-contenedor">
 
-            <input
-                type="number"
-                id="numero1"
-                placeholder="Número 1"
-            >
+        <div id="lista-carrito">
 
-            <input
-                type="number"
-                id="numero2"
-                placeholder="Número 2"
-            >
+            <p class="texto-centro">
+                Tu carrito está vacío.
+            </p>
 
-            <div class="botones-calculadora">
+        </div>
 
-                <button onclick="sumar()">
-                    +
-                </button>
+        <div class="total-carrito">
 
-                <button onclick="restar()">
-                    -
-                </button>
-
-                <button onclick="multiplicar()">
-                    ×
-                </button>
-
-                <button onclick="dividir()">
-                    ÷
-                </button>
-
-            </div>
-
-            <h3 id="resultado">
-                Resultado: 0
+            <h3 id="total">
+                Total: $0
             </h3>
 
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACTO
-    ========================== -->
-    <section id="contacto" class="section">
-
-        <h2>Contacto</h2>
-
-        <form onsubmit="enviarFormulario(event)">
-
-            <input
-                type="text"
-                id="nombre"
-                placeholder="Nombre"
-                required
-            >
-
-            <input
-                type="email"
-                id="correo"
-                placeholder="Correo electrónico"
-                required
-            >
-
-            <textarea
-                id="mensaje"
-                placeholder="Escribe tu mensaje"
-                required
-            ></textarea>
-
-            <button type="submit">
-                Enviar
+            <button onclick="vaciarCarrito()">
+                Vaciar carrito
             </button>
 
-        </form>
+            <button onclick="finalizarCompra()">
+                Finalizar compra
+            </button>
 
-    </section>
+        </div>
 
+    </div>
 
-    <!-- =========================
-         PIE DE PÁGINA
-    ========================== -->
-    <footer>
-
-        <p>
-            © 2026 Lorem Ipsum - Plantilla educativa
-        </p>
-
-        <p>
-            Página creada con HTML, CSS y JavaScript
-        </p>
-
-    </footer>
+</section>
 
 
-    <!-- Conexión con JavaScript -->
-    <script src="script.js"></script>
+<!-- GALERÍA -->
+<section id="galeria" class="section fondo">
+
+    <h2>Nuestra esencia</h2>
+
+    <div class="galeria">
+
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHthMl0HhOUvEBHR6wU9Fe1vQDxAAhUU4euqGFtDVUSokts-YeTuXuwiKy&s=10"
+            alt="Colección de perfumes"
+            onclick="ampliarImagen(this)"
+        >
+
+        <img
+            src="https://m.media-amazon.com/images/I/81g-sfEtQOL._SX569_.jpg"
+            alt="Fragancias"
+            onclick="ampliarImagen(this)"
+        >
+
+        <img
+            src="https://www.druni.es/blog/wp-content/uploads/2026/03/Druni_Padres_Multimarca_Blog_1200x748px.jpg"
+            alt="Perfumes exclusivos"
+            onclick="ampliarImagen(this)"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- CALCULADORA -->
+<section class="section">
+
+    <h2>Calculadora</h2>
+
+    <div class="calculadora">
+
+        <input type="number" id="numero1" placeholder="Número 1">
+
+        <input type="number" id="numero2" placeholder="Número 2">
+
+        <div class="botones-calculadora">
+
+            <button onclick="sumar()">+</button>
+
+            <button onclick="restar()">-</button>
+
+            <button onclick="multiplicar()">×</button>
+
+            <button onclick="dividir()">÷</button>
+
+        </div>
+
+        <h3 id="resultado">
+            Resultado: 0
+        </h3>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTO -->
+<section id="contacto" class="section fondo">
+
+    <h2>Contacto</h2>
+
+    <form onsubmit="enviarFormulario(event)">
+
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Nombre"
+            required
+        >
+
+        <input
+            type="email"
+            id="correo"
+            placeholder="Correo electrónico"
+            required
+        >
+
+        <textarea
+            id="mensaje"
+            placeholder="Escribe tu mensaje"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Enviar
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- PIE DE PÁGINA -->
+<footer>
+
+    <p>
+        © 2026 Perfume Miki - Todos los derechos reservados
+    </p>
+
+    <p>
+        Tienda virtual creada con HTML, CSS y JavaScript
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
-
