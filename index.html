@@ -1,305 +1,516 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Perfume Miki | Tienda Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="styles.css">
+    <title>Perfume Miki | Tienda Online</title>
 
-</head><body><!-- ENCABEZADO -->
-<header>
+    <link rel="stylesheet" href="styles.css">
 
-    <div class="logo">
-        Perfume & Esencia
-    </div>
+</head>
 
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#tienda">Tienda</a>
-        <a href="#carrito">Carrito</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+<body>
 
-</header>
+    <!-- ENCABEZADO -->
+
+    <header>
+
+        <div class="logo">
+            Perfume & Esencia
+        </div>
+
+        <nav>
+
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#tienda">Tienda</a>
+            <a href="#carrito">Carrito</a>
+            <a href="#galeria">Galería</a>
+            <a href="#contacto">Contacto</a>
+
+        </nav>
+
+    </header>
 
 
-<!-- INICIO -->
-<section id="inicio" class="hero">
+    <!-- INICIO -->
 
-    <div class="hero-text">
+    <section id="inicio" class="hero">
 
-        <h1>Bienvenido a Perfume Miki</h1>
+        <div class="hero-text">
 
-        <p>
-            Un buen perfume no solo deja una fragancia,
-            deja una huella que nadie olvida.
-            Tu esencia, tu estilo, tu huella.
+            <h1>Bienvenido a Perfume Miki</h1>
+
+            <p>
+                Un buen perfume no solo deja una fragancia,
+                deja una huella que nadie olvida.
+
+                Tu esencia. Tu estilo. Tu huella.
+            </p>
+
+            <button onclick="irATienda()">
+                Comprar ahora
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- NOSOTROS -->
+
+    <section id="nosotros" class="section">
+
+        <h2>Conócenos un poco más</h2>
+
+        <p class="texto-centro">
+
+            Somos una empresa dedicada a satisfacer a nuestros
+            clientes con deliciosas fragancias y una gran variedad
+            de perfumes.
+
+            Nuestro objetivo es ofrecer calidad, buenos precios
+            y una excelente atención.
+
         </p>
 
-        <button onclick="irATienda()">
-            Comprar ahora
-        </button>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- NOSOTROS -->
-<section id="nosotros" class="section">
+    <!-- TIENDA DE PERFUMES -->
 
-    <h2>Conócenos un poco más</h2>
+    <section id="tienda" class="section fondo">
 
-    <p class="texto-centro">
-        Somos una empresa dedicada a satisfacer a nuestros
-        clientes con deliciosas fragancias y una gran variedad
-        de perfumes. Nuestro objetivo es ofrecer calidad,
-        buenos precios y una excelente atención.
-    </p>
+        <h2>Nuestras Lociones</h2>
 
-</section>
+        <p class="texto-centro">
+
+            Descubre nuestra colección de fragancias.
+            Encuentra tu esencia favorita al mejor precio.
+
+        </p>
 
 
-<!-- TIENDA -->
-<section id="tienda" class="section fondo">
+        <div class="cards">
 
-    <h2>Nuestros Perfumes</h2>
 
-    <p class="texto-centro">
-        Encuentra tu fragancia favorita y descubre
-        una esencia que represente tu personalidad.
-    </p>
+            <!-- PRODUCTO 1 -->
 
-    <div class="cards">
+            <div class="card producto">
 
-        <!-- PRODUCTO 1 -->
-        <div class="card producto">
+                <img
+                    src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500"
+                    alt="Sauvage Dior"
+                    class="producto-img"
+                >
+
+                <h3>Sauvage Dior</h3>
+
+                <p>
+                    Fragancia fresca, elegante y masculina.
+                </p>
+
+                <h3 class="precio">
+                    $280.000 COP / Unidad
+                </h3>
+
+                <button onclick="agregarCarrito(1)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="card producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500"
+                    alt="Bleu de Chanel"
+                    class="producto-img"
+                >
+
+                <h3>Bleu de Chanel</h3>
+
+                <p>
+                    Una fragancia sofisticada y moderna.
+                </p>
+
+                <h3 class="precio">
+                    $320.000 COP / Unidad
+                </h3>
+
+                <button onclick="agregarCarrito(2)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="card producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500"
+                    alt="One Million"
+                    class="producto-img"
+                >
+
+                <h3>One Million</h3>
+
+                <p>
+                    Un aroma intenso, dulce y distinguido.
+                </p>
+
+                <h3 class="precio">
+                    $250.000 COP / Unidad
+                </h3>
+
+                <button onclick="agregarCarrito(3)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTO 4 -->
+
+            <div class="card producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=500"
+                    alt="Good Girl"
+                    class="producto-img"
+                >
+
+                <h3>Good Girl</h3>
+
+                <p>
+                    Una esencia femenina, elegante y cautivadora.
+                </p>
+
+                <h3 class="precio">
+                    $290.000 COP / Unidad
+                </h3>
+
+                <button onclick="agregarCarrito(4)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTO 5 -->
+
+            <div class="card producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=500"
+                    alt="La Vie Est Belle"
+                    class="producto-img"
+                >
+
+                <h3>La Vie Est Belle</h3>
+
+                <p>
+                    Fragancia dulce con un toque delicado.
+                </p>
+
+                <h3 class="precio">
+                    $270.000 COP / Unidad
+                </h3>
+
+                <button onclick="agregarCarrito(5)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTO 6 -->
+
+            <div class="card producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1595535373192-fc8935bacd89?w=500"
+                    alt="Acqua di Gio"
+                    class="producto-img"
+                >
+
+                <h3>Acqua di Gio</h3>
+
+                <p>
+                    Un aroma fresco inspirado en el mar.
+                </p>
+
+                <h3 class="precio">
+                    $260.000 COP / Unidad
+                </h3>
+
+                <button onclick="agregarCarrito(6)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTO 7 -->
+
+            <div class="card producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=500"
+                    alt="212 VIP"
+                    class="producto-img"
+                >
+
+                <h3>212 VIP</h3>
+
+                <p>
+                    Una fragancia moderna para destacar.
+                </p>
+
+                <h3 class="precio">
+                    $240.000 COP / Unidad
+                </h3>
+
+                <button onclick="agregarCarrito(7)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTO 8 -->
+
+            <div class="card producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500&fit=crop"
+                    alt="Invictus"
+                    class="producto-img"
+                >
+
+                <h3>Invictus</h3>
+
+                <p>
+                    Un aroma energético y deportivo.
+                </p>
+
+                <h3 class="precio">
+                    $230.000 COP / Unidad
+                </h3>
+
+                <button onclick="agregarCarrito(8)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTO 9 -->
+
+            <div class="card producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500&sat=-60"
+                    alt="Versace Eros"
+                    class="producto-img"
+                >
+
+                <h3>Versace Eros</h3>
+
+                <p>
+                    Una esencia intensa y llena de personalidad.
+                </p>
+
+                <h3 class="precio">
+                    $275.000 COP / Unidad
+                </h3>
+
+                <button onclick="agregarCarrito(9)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- CARRITO DE COMPRAS -->
+
+    <section id="carrito" class="section">
+
+        <h2>Carrito de compras</h2>
+
+        <div class="carrito-contenedor">
+
+            <div id="lista-carrito">
+
+                <p class="texto-centro">
+                    Tu carrito está vacío.
+                </p>
+
+            </div>
+
+
+            <div class="total-carrito">
+
+                <h3 id="total">
+                    Total: $0
+                </h3>
+
+                <button onclick="vaciarCarrito()">
+                    Vaciar carrito
+                </button>
+
+                <button onclick="finalizarCompra()">
+                    Finalizar compra
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALERÍA -->
+
+    <section id="galeria" class="section fondo">
+
+        <h2>Nuestra esencia</h2>
+
+        <div class="galeria">
 
             <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHthMl0HhOUvEBHR6wU9Fe1vQDxAAhUU4euqGFtDVUSokts-YeTuXuwiKy&s=10"
-                alt="Perfume Elegance"
-                class="producto-img"
+                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600"
+                alt="Colección de perfumes"
+                onclick="ampliarImagen(this)"
             >
-
-            <h3>Elegance</h3>
-
-            <p>
-                Fragancia elegante y sofisticada
-                para cualquier ocasión.
-            </p>
-
-            <h3 class="precio">$120.000</h3>
-
-            <button onclick="agregarCarrito(1)">
-                Agregar al carrito
-            </button>
-
-        </div>
-
-
-        <!-- PRODUCTO 2 -->
-        <div class="card producto">
 
             <img
-                src="https://m.media-amazon.com/images/I/81g-sfEtQOL._SX569_.jpg"
-                alt="Perfume Intense"
-                class="producto-img"
+                src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=600"
+                alt="Fragancias"
+                onclick="ampliarImagen(this)"
             >
-
-            <h3>Intense</h3>
-
-            <p>
-                Una fragancia intensa con personalidad
-                y carácter.
-            </p>
-
-            <h3 class="precio">$150.000</h3>
-
-            <button onclick="agregarCarrito(2)">
-                Agregar al carrito
-            </button>
-
-        </div>
-
-
-        <!-- PRODUCTO 3 -->
-        <div class="card producto">
 
             <img
-                src="https://www.druni.es/blog/wp-content/uploads/2026/03/Druni_Padres_Multimarca_Blog_1200x748px.jpg"
-                alt="Perfume Exclusive"
-                class="producto-img"
+                src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600"
+                alt="Perfumes exclusivos"
+                onclick="ampliarImagen(this)"
             >
 
-            <h3>Exclusive</h3>
-
-            <p>
-                Una esencia especial para quienes
-                buscan destacar.
-            </p>
-
-            <h3 class="precio">$180.000</h3>
-
-            <button onclick="agregarCarrito(3)">
-                Agregar al carrito
-            </button>
-
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- CARRITO DE COMPRAS -->
-<section id="carrito" class="section">
+    <!-- CALCULADORA -->
 
-    <h2>Carrito de compras</h2>
+    <section class="section">
 
-    <div class="carrito-contenedor">
+        <h2>Calculadora</h2>
 
-        <div id="lista-carrito">
+        <div class="calculadora">
 
-            <p class="texto-centro">
-                Tu carrito está vacío.
-            </p>
+            <input
+                type="number"
+                id="numero1"
+                placeholder="Número 1"
+            >
 
-        </div>
+            <input
+                type="number"
+                id="numero2"
+                placeholder="Número 2"
+            >
 
-        <div class="total-carrito">
+            <div class="botones-calculadora">
 
-            <h3 id="total">
-                Total: $0
+                <button onclick="sumar()">+</button>
+
+                <button onclick="restar()">-</button>
+
+                <button onclick="multiplicar()">×</button>
+
+                <button onclick="dividir()">÷</button>
+
+            </div>
+
+            <h3 id="resultado">
+                Resultado: 0
             </h3>
 
-            <button onclick="vaciarCarrito()">
-                Vaciar carrito
-            </button>
-
-            <button onclick="finalizarCompra()">
-                Finalizar compra
-            </button>
-
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- GALERÍA -->
-<section id="galeria" class="section fondo">
+    <!-- CONTACTO -->
 
-    <h2>Nuestra esencia</h2>
+    <section id="contacto" class="section fondo">
 
-    <div class="galeria">
+        <h2>Contacto</h2>
 
-        <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHthMl0HhOUvEBHR6wU9Fe1vQDxAAhUU4euqGFtDVUSokts-YeTuXuwiKy&s=10"
-            alt="Colección de perfumes"
-            onclick="ampliarImagen(this)"
-        >
+        <form onsubmit="enviarFormulario(event)">
 
-        <img
-            src="https://m.media-amazon.com/images/I/81g-sfEtQOL._SX569_.jpg"
-            alt="Fragancias"
-            onclick="ampliarImagen(this)"
-        >
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Nombre"
+                required
+            >
 
-        <img
-            src="https://www.druni.es/blog/wp-content/uploads/2026/03/Druni_Padres_Multimarca_Blog_1200x748px.jpg"
-            alt="Perfumes exclusivos"
-            onclick="ampliarImagen(this)"
-        >
+            <input
+                type="email"
+                id="correo"
+                placeholder="Correo electrónico"
+                required
+            >
 
-    </div>
+            <textarea
+                id="mensaje"
+                placeholder="Escribe tu mensaje"
+                required
+            ></textarea>
 
-</section>
+            <button type="submit">
+                Enviar
+            </button>
 
+        </form>
 
-<!-- CALCULADORA -->
-<section class="section">
-
-    <h2>Calculadora</h2>
-
-    <div class="calculadora">
-
-        <input type="number" id="numero1" placeholder="Número 1">
-
-        <input type="number" id="numero2" placeholder="Número 2">
-
-        <div class="botones-calculadora">
-
-            <button onclick="sumar()">+</button>
-
-            <button onclick="restar()">-</button>
-
-            <button onclick="multiplicar()">×</button>
-
-            <button onclick="dividir()">÷</button>
-
-        </div>
-
-        <h3 id="resultado">
-            Resultado: 0
-        </h3>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- CONTACTO -->
-<section id="contacto" class="section fondo">
+    <!-- PIE DE PÁGINA -->
 
-    <h2>Contacto</h2>
+    <footer>
 
-    <form onsubmit="enviarFormulario(event)">
+        <p>
+            © 2026 Perfume Miki - Todos los derechos reservados
+        </p>
 
-        <input
-            type="text"
-            id="nombre"
-            placeholder="Nombre"
-            required
-        >
+        <p>
+            Tienda virtual creada con HTML, CSS y JavaScript
+        </p>
 
-        <input
-            type="email"
-            id="correo"
-            placeholder="Correo electrónico"
-            required
-        >
-
-        <textarea
-            id="mensaje"
-            placeholder="Escribe tu mensaje"
-            required
-        ></textarea>
-
-        <button type="submit">
-            Enviar
-        </button>
-
-    </form>
-
-</section>
+    </footer>
 
 
-<!-- PIE DE PÁGINA -->
-<footer>
+    <!-- JAVASCRIPT -->
 
-    <p>
-        © 2026 Perfume Miki - Todos los derechos reservados
-    </p>
-
-    <p>
-        Tienda virtual creada con HTML, CSS y JavaScript
-    </p>
-
-</footer>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
